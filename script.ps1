@@ -1,4 +1,4 @@
-﻿param (
+param (
     [Parameter(Mandatory=$true)]
     [int]
     $startIndex,
@@ -9,14 +9,9 @@
 )
 
 function Merge-Video-Audio-Subtitle ([int]$start, [int]$end) {
-    Write-Output "Created by Alexey Ivashkin. v1.1"
+    Write-Output "Created by Alexey Ivashkin. v1.1.1"
 
     $originalAudioParam = "-A"
-
-    if (-not $mergeAudio) {
-        Write-Output "Video or audio must be provided!"
-        exit
-    }
 
     for ($i = $start; $i -le $end; $i++) {
         # обработчик если номер серии всегда состоит из двух цифр
@@ -28,7 +23,7 @@ function Merge-Video-Audio-Subtitle ([int]$start, [int]$end) {
         }
 
         # путь до файла вывода
-        $outPath = "D:\mkvtoolnix\out/Fullmetal.Alchemist.Brotherhood.2009.E$number.mkv"
+        $outPath = "D:\Titles\Alchemist/Fullmetal.Alchemist.Brotherhood.2009.E$number.mkv"
         # путь до видеоряда
         $videoPath = "D:\Titles\Fullmetal.Alchemist.Brotherhood.2009.MVO.STEPonee\Fullmetal.Alchemist.Brotherhood.2009.E$number.MVO.STEPonee.mp4"
         # путь до аудиофайла
