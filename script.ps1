@@ -8,8 +8,6 @@ param (
     $endIndex
 )
 
-"Created by Alexey Ivashkin. v1.1.2"
-
 $originalAudioParam = "-A"
 
 for ($i = $startIndex; $i -le $endIndex; $i++) {
