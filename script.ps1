@@ -19,6 +19,8 @@ for ($i = $startIndex; $i -le $endIndex; $i++) {
         $number = $i
     }
 
+    # ПУТИ УКАЗЫВАТЬ ЧЕРЕЗ "\"!
+
     # путь до файла вывода
     $outPath = "D:\Titles\Haiyore! Nyaruko-san W\[Yousei-raws] Haiyore! Nyaruko-san W $number [BDrip 1920x1080 x264 FLAC].mkv"
     # путь до видеоряда
@@ -31,7 +33,8 @@ for ($i = $startIndex; $i -le $endIndex; $i++) {
     $subtitleInscriptionsPath = "D:\Titles\Haiyore! Nyaruko-san W [BDRip] [1080p]\RUS Subs\надписи\[Yousei-raws] Haiyore! Nyaruko-san W $number [BDrip 1920x1080 x264 FLAC].ass"
 
     $progress = [math]::Round((($number - $startIndex) / ($endIndex - $startIndex + 1)) * 100, 1)
-    Write-Progress -Activity "Working.." -Status "$progress%           Merging in $outPath..." -PercentComplete $progress
+    $outFile = $outPath.Split("\")[-1]
+    Write-Progress -Activity "Working.." -Status "$progress%      $outFile..." -PercentComplete $progress
 
     # сам merge
     # из-за специфики запуска программ через *это*, настройки через параметры не удались. Поэтому всё делаем ручками.
