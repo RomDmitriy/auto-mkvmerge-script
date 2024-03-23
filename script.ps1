@@ -1,11 +1,11 @@
 param (
     [Parameter(Mandatory=$true)]
     [int]
-    $startIndex,
+    $startIndex, # Номер серии, с которой начать. Даже если номер состоит из двух цифр (например, "01", пишем 1)
 
     [Parameter(Mandatory=$true)]
     [int]
-    $endIndex
+    $endIndex # Номер серии, на которой закончить (включительно). Даже если номер состоит из двух цифр (например, "01", пишем 1)
 )
 
 $removeOriginalSound = "-A"
