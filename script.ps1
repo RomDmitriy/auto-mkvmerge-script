@@ -9,6 +9,7 @@ param (
 )
 
 $removeOriginalSound = "-A"
+$removeOriginalSubs = "-S"
 
 for ($i = $startIndex; $i -le $endIndex; $i++) {
     # обработчик если номер серии всегда состоит из двух цифр
@@ -39,11 +40,12 @@ for ($i = $startIndex; $i -le $endIndex; $i++) {
     # сам merge
     # из-за специфики запуска программ через *это*, настройки через параметры не удались. Поэтому всё делаем ручками.
     # если нужна оригинальная аудиодорожка, убираем "$removeOriginalSound"
+    # если нужны оригинальные субтитры, убираем "$removeOriginalSubs"
     # если не нужно внешнее аудио, то убираем "--language 0:rus $audioPathPrimary"
     # если нужна лишь одна аудиодорожка (только primary), то убираем "--language 0:eng $audioPathSecondary"
     # если не нужны внешние субтитры, то убираем "--language 0:rus --track-name 0:"Субтитры" $subtitlePath"
     # если не нужны надписи, то убираем "--language 0:rus --track-name 0:"Надписи" $subtitleInscriptionsPath"
     # P.S. Изначально выбираемой дорожкой становится аудио, которое указано в параметрах раньше, а субтитры - последними
-    .\mkvmerge.exe -q -o $outPath $removeOriginalSound $videoPath --language 0:rus $audioPathPrimary --language 0:eng $audioPathSecondary --language 0:rus --track-name 0:"Субтитры" $subtitlePath --language 0:rus --track-name 0:"Надписи" $subtitleInscriptionsPath
+    .\mkvmerge.exe -q -o $outPath $removeOriginalSound $removeOriginalSubs $videoPath --language 0:rus $audioPathPrimary --language 0:eng $audioPathSecondary --language 0:rus --track-name 0:"Субтитры" $subtitlePath --language 0:rus --track-name 0:"Надписи" $subtitleInscriptionsPath
 }
 Write-Progress -Activity "Ready!" -Completed
