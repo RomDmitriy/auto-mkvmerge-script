@@ -40,6 +40,7 @@ for ($i = $startIndex; $i -le $endIndex; $i++) {
     # сам merge
     # из-за специфики запуска программ через *это*, настройки через параметры не удались. Поэтому всё делаем ручками.
     # если нужна оригинальная аудиодорожка, убираем "$removeOriginalSound"
+    # если нужны оригинальные субтитры, убираем "$removeOriginalSubs"
     # если не нужно внешнее аудио, то убираем "--language 0:rus $audioPathPrimary"
     # если нужна лишь одна аудиодорожка (только primary), то убираем "--language 0:eng $audioPathSecondary"
     # если не нужны внешние субтитры, то убираем "--language 0:rus --track-name 0:"Субтитры" $subtitlePath"
